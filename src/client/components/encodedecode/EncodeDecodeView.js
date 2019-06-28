@@ -20,21 +20,6 @@ function EncodeDecodeView(props) {
             </div>
         </div>
 
-        <div className="row mt-3">
-            <div className="col-12">
-                <div className="btn-group" role="group" aria-label="Basic example">
-                    <button onClick={encode}
-                            className={'btn btn-success'}
-                            style={{display: encoding.encode ? 'block' : 'none'}}
-                    ><b>ENCODE</b></button>
-                    <button onClick={decode}
-                            className={'btn btn-danger'}
-                            style={{display: encoding.decode ? 'block' : 'none'}}
-                    ><b>DECODE</b></button>
-                </div>
-            </div>
-        </div>
-
         <div className="row mt-2">
             <div className="col-12">
                 <b>Input</b>
@@ -45,16 +30,28 @@ function EncodeDecodeView(props) {
             </div>
         </div>
 
-        <div className={'d-flex justify-content-center mt-1'}>
-            <button data-toggle="tooltip"
-                    data-placement="bottom"
-                    title="Copy output to input"
-                    className={'btn btn-outline-success btn-sm'}
-                    onClick={copyOutputToInput}
-            >^</button>
+        <div className="row mt-3">
+            <div className="col-12">
+                <div className="btn-group" role="group" aria-label="Basic example">
+                    <button onClick={encode}
+                            className={'btn btn-primary mr-1'}
+                            style={{display: encoding.encode ? 'block' : 'none'}}
+                    ><b>ENCODE</b></button>
+                    <button onClick={decode}
+                            className={'btn btn-primary mr-1'}
+                            style={{display: encoding.decode ? 'block' : 'none'}}
+                    ><b>DECODE</b></button>
+                    <button data-toggle="tooltip"
+                            data-placement="bottom"
+                            title="Copy output to input"
+                            className={'btn btn-primary mg-1'}
+                            onClick={copyOutputToInput}
+                    >^</button>
+                </div>
+            </div>
         </div>
 
-        <div className="row">
+        <div className="row mt-2">
             <div className="col-12">
                 <span><b>Output </b> {status}</span>
                 <textarea className="form-control mt-1"
@@ -70,7 +67,7 @@ function EncodeDecodeView(props) {
 function EncodingBtn(props) {
     const {currentEncoding, encoding, setEncoding} = props;
 
-    return <button className={`btn btn-${currentEncoding === encoding ? 'primary' : 'light'}`}
+    return <button className={`btn btn-${currentEncoding === encoding ? 'success' : 'secondary'}`}
                    onClick={() => setEncoding(encoding)}>{encoding.name}</button>;
 }
 
