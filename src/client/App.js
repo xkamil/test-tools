@@ -2,7 +2,7 @@ import React from 'react';
 import {BrowserRouter as Router, Route} from "react-router-dom";
 import RandomContainer from "./pages/random/RandomContainer";
 import EncodeDecodeContainer from "./pages/encodedecode/EncodeDecodeContainer";
-import NavigationView from "./components/Navigation";
+import NavigationView from "./pages/Navigation";
 import TransformContainer from "./pages/transform/TransformContainer";
 import Store from "./redux/Store";
 import {createStore} from 'redux';

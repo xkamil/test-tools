@@ -5,19 +5,18 @@ import NotificationView from "./NotificationView";
 
 class NotificationContainer extends React.Component {
 
-    constructor(){
-        super();
-    }
-
     render() {
         const {notifications} = this.props;
 
         const notificationsView = notifications.map(n=> <NotificationView notification={n} key={n.id} onDispose={this.dispose}/>);
 
         const style = {
-            position: 'absolute',
-            top: 5,
-            right: '10%'
+            position: 'fixed',
+            top: '50%',
+            left: '50%',
+            opacity: 0.9,
+            marginTop:  -50,
+            marginLeft: -150,
         };
 
         return <div style={style}>{notificationsView}</div>

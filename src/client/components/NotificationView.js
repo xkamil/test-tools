@@ -17,9 +17,9 @@ class NotificationView extends React.Component {
         const {notification} = this.props;
 
         return (
-            <div ref="alert"
+            <span ref="alert"
                  className={'alert alert-dismissible fade show alert-' + notification.type}
-            >{notification.message}</div>
+            >{notification.message}</span>
         )
     }
 }
