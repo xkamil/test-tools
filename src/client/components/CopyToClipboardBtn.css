@@ -1,0 +1,10 @@
+.copyToClipboardBtn {
+    opacity: 0.2;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.copyToClipboardBtn:hover {
+    opacity: 0.8;
+}

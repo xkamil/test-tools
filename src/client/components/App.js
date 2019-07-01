@@ -3,10 +3,12 @@ import {BrowserRouter as Router, Route} from "react-router-dom";
 import RandomContainer from "./random/RandomContainer";
 import EncodeDecodeContainer from "./encodedecode/EncodeDecodeContainer";
 import NavigationView from "./Navigation";
+import TransformContainer from "./transform/TransformContainer";
 
 const links = [
     {path: "/random", label: "Random", component: RandomContainer},
-    {path: "/encodedecode", label: "Encode/Decode", component: EncodeDecodeContainer}
+    {path: "/encodedecode", label: "Encode/Decode", component: EncodeDecodeContainer},
+    {path: "/transform", label: "Transform", component: TransformContainer},
 ];
 
 function App() {

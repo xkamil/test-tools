@@ -8,12 +8,11 @@ class EncodeDecodeContainer extends React.Component {
     state = {
         input: '',
         output: '',
-        status: '',
         encoding: Encoding.BASE_64
     };
 
-    onInputChange = (e) => {
-        this.setState({input: e.target.value});
+    onInputChange = (value) => {
+        this.setState({input: value});
     };
 
     setEncoding = (encoding) => {
@@ -23,17 +22,15 @@ class EncodeDecodeContainer extends React.Component {
     encode = () => {
         const {input, encoding} = this.state;
 
-        this.setState({status: ' - ENCODING IN PROGRESS'});
         ApiClient.encode(encoding.name, input)
-            .then(res => this.setState({output: res.data, status: ` - ${encoding.name} encoded`}));
+            .then(res => this.setState({output: res.data}));
     };
 
     decode = () => {
         const {input, encoding} = this.state;
 
-        this.setState({status: ' - DECODING IN PROGRESS'});
         ApiClient.decode(encoding.name, input)
-            .then(res => this.setState({output: res.data, status: ` - ${encoding.name} decoded`}));
+            .then(res => this.setState({output: res.data}));
     };
 
     copyOutputToInput = () => {

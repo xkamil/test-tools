@@ -1,5 +1,6 @@
 import React from 'react';
 import Encoding from "./Encoding";
+import DataInput from "../DataInput";
 
 function EncodeDecodeView(props) {
     const {output, input, status, encoding} = props;
@@ -22,11 +23,7 @@ function EncodeDecodeView(props) {
 
         <div className="row mt-2">
             <div className="col-12">
-                <b>Input</b>
-                <textarea className="form-control mt-1"
-                          onChange={onInputChange}
-                          style={{height: 150}}
-                          value={input}/>
+                <DataInput placeholder={'Input'} onChange={onInputChange} value={input}/>
             </div>
         </div>
 
@@ -46,18 +43,15 @@ function EncodeDecodeView(props) {
                             title="Copy output to input"
                             className={'btn btn-primary mg-1'}
                             onClick={copyOutputToInput}
-                    >^</button>
+                    >^
+                    </button>
                 </div>
             </div>
         </div>
 
         <div className="row mt-2">
             <div className="col-12">
-                <span><b>Output </b> {status}</span>
-                <textarea className="form-control mt-1"
-                          readOnly={true}
-                          style={{height: 150}}
-                          value={output}/>
+                <DataInput placeholder={'Output'} readOnly={true} value={output} copyToClipboardBtn={true}/>
             </div>
         </div>
         </>
