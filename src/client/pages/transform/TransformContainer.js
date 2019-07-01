@@ -1,5 +1,5 @@
 import React from 'react';
-import DataInput from "../DataInput";
+import DataInput from "../../components/DataInput";
 
 
 class TransformContainer extends React.Component {

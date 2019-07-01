@@ -1,6 +1,6 @@
 import React from 'react';
 import ApiClient from "../../ApiClient";
-import DataInput from "../DataInput";
+import DataInput from "../../components/DataInput";
 
 
 class RandomContainer extends React.Component {

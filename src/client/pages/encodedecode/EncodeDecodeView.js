@@ -1,9 +1,9 @@
 import React from 'react';
 import Encoding from "./Encoding";
-import DataInput from "../DataInput";
+import DataInput from "../../components/DataInput";
 
 function EncodeDecodeView(props) {
-    const {output, input, status, encoding} = props;
+    const {output, input, encoding} = props;
     const {copyOutputToInput, encode, decode, setEncoding, onInputChange} = props;
 
     return (

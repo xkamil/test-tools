@@ -1,5 +1,6 @@
 import React from 'react';
 import './CopyToClipboardBtn.css';
+import {addSuccessNotification} from "../redux/actions/notificationActions";
 
 class CopyToClipboardBtn extends React.Component {
 
@@ -8,6 +9,7 @@ class CopyToClipboardBtn extends React.Component {
 
         target.select();
         document.execCommand('copy');
+        addSuccessNotification('Copied text to clipboard');
     };
 
     render() {
@@ -20,15 +22,3 @@ class CopyToClipboardBtn extends React.Component {
 }
 
 export default CopyToClipboardBtn;
-
-
-class StatusPopup extends React.Component {
-
-    componentDidMount() {
-        setInterval(()=>{}, 500)
-    }
-
-    render() {
-        return (<span>aaa</span>)
-    }
-}
