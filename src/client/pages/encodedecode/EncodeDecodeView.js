@@ -10,13 +10,13 @@ function EncodeDecodeView(props) {
         <>
         <div className="row mt-2">
             <div className="col-12">
-                <div className="btn-group" role="group" aria-label="Basic example">
-                    <EncodingBtn currentEncoding={encoding}
-                                 encoding={Encoding.BASE_64}
-                                 setEncoding={setEncoding}/>
-                    <EncodingBtn currentEncoding={encoding}
-                                 encoding={Encoding.SHA_256}
-                                 setEncoding={setEncoding}/>
+                <div className="btn-group" role="group">
+                    <div className="btn-group btn-group-toggle" data-toggle="buttons">
+                        <EncodingBtn currentEncoding={encoding} setEncoding={setEncoding}
+                                     btnEncoding={Encoding.BASE_64}/>
+                        <EncodingBtn currentEncoding={encoding} setEncoding={setEncoding}
+                                     btnEncoding={Encoding.SHA_256}/>
+                    </div>
                 </div>
             </div>
         </div>
@@ -59,10 +59,14 @@ function EncodeDecodeView(props) {
 }
 
 function EncodingBtn(props) {
-    const {currentEncoding, encoding, setEncoding} = props;
+    const {btnEncoding, currentEncoding, setEncoding} = props;
 
-    return <button className={`btn btn-${currentEncoding === encoding ? 'success' : 'secondary'}`}
-                   onClick={() => setEncoding(encoding)}>{encoding.name}</button>;
+    return (
+        <label className={`btn btn-secondary ${currentEncoding === btnEncoding ? 'active' : ''}`}
+               onClick={() => setEncoding(btnEncoding)}>
+            <input type="radio" onChange={() => true}/>{btnEncoding.name}
+        </label>
+    )
 }
 
 export default EncodeDecodeView;
