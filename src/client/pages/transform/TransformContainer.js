@@ -28,7 +28,8 @@ class TransformContainer extends React.Component {
         return (
             <div className="row">
                 <div className="col-12">
-
+                    <b>Transform</b> - transform text
+                    <hr/>
                     <div className="btn-group btn-group-toggle" data-toggle="buttons">
                         <SetTransformBtn name={'to upper case'}
                                          currentTransform={transform}

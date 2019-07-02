@@ -20,6 +20,8 @@ class RandomContainer extends React.Component {
         return (
             <div className="row">
                 <div className="col-12">
+                    <b>Random</b> - generate random data
+                    <hr/>
                     <button className="btn btn-primary mb-2" onClick={this.getUUID}>UUIDv4</button>
                     <DataInput placeholder={'Output'} readOnly={true} value={uuid} copyToClipboardBtn={true}/>
                 </div>

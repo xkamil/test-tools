@@ -10,6 +10,9 @@ function EncodeDecodeView(props) {
         <>
         <div className="row mt-2">
             <div className="col-12">
+                <b>Encode/Decode</b> - encode and decode data
+                <hr/>
+
                 <div className="btn-group" role="group">
                     <div className="btn-group btn-group-toggle" data-toggle="buttons">
                         <EncodingBtn currentEncoding={encoding} setEncoding={setEncoding}
