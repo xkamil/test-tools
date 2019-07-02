@@ -4,7 +4,7 @@ import DataInput from "../../components/DataInput";
 
 function EncodeDecodeView(props) {
     const {output, input, encoding} = props;
-    const {copyOutputToInput, encode, decode, setEncoding, onInputChange} = props;
+    const {encode, decode, setEncoding, onInputChange} = props;
 
     return (
         <>
@@ -41,13 +41,6 @@ function EncodeDecodeView(props) {
                             className={'btn btn-primary mr-1'}
                             style={{display: encoding.decode ? 'block' : 'none'}}
                     ><b>DECODE</b></button>
-                    <button data-toggle="tooltip"
-                            data-placement="bottom"
-                            title="Copy output to input"
-                            className={'btn btn-primary mg-1'}
-                            onClick={copyOutputToInput}
-                    >^
-                    </button>
                 </div>
             </div>
         </div>

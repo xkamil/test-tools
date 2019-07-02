@@ -40,16 +40,11 @@ class EncodeDecodeContainer extends React.Component {
             });
     };
 
-    copyOutputToInput = () => {
-        this.setState(prevState => ({input: prevState.output, output: ''}))
-    };
-
     render() {
         return <EncodeDecodeView {...this.state}
                                  encode={this.encode}
                                  decode={this.decode}
                                  setEncoding={this.setEncoding}
-                                 copyOutputToInput={this.copyOutputToInput}
                                  onInputChange={this.onInputChange}/>
     }
 
