@@ -9,6 +9,7 @@ import {createStore} from 'redux';
 import reducers from "./redux/reducers/reducers";
 import {Provider} from "react-redux";
 import NotificationContainer from "./components/NotificationContainer";
+import { createBrowserHistory } from 'history';
 
 const store = createStore(reducers);
 Store.init(store);
@@ -24,7 +25,7 @@ function App() {
     return (
         <Provider store={store}>
             <div className="App">
-                <Router>
+                <Router history={createBrowserHistory()}>
                     <NavigationView links={links}/>
                     {links.map(link => <Route key={link.path} exact path={link.path} component={link.component}/>)}
                 </Router>
