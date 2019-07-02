@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Router, Route} from "react-router-dom";
+import {HashRouter, Route} from "react-router-dom";
 import RandomContainer from "./pages/random/RandomContainer";
 import EncodeDecodeContainer from "./pages/encodedecode/EncodeDecodeContainer";
 import NavigationView from "./pages/Navigation";
@@ -25,10 +25,10 @@ function App() {
     return (
         <Provider store={store}>
             <div className="App">
-                <Router history={createBrowserHistory()}>
+                <HashRouter history={createBrowserHistory()}>
                     <NavigationView links={links}/>
                     {links.map(link => <Route key={link.path} exact path={link.path} component={link.component}/>)}
-                </Router>
+                </HashRouter>
 
                 <NotificationContainer/>
             </div>
