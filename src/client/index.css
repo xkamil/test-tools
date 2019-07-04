@@ -11,3 +11,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.inputDark, .inputDark:active, .inputDark:focus {
+  background-color: #222;
+  color: #bbb;
+  line-height: 1.2em;
+  font-size: 0.9em;
+}

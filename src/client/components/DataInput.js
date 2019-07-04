@@ -34,21 +34,22 @@ class DataInput extends React.Component {
     };
 
     render() {
-        const {readOnly, value, initHeight, copyToClipboardBtn, onChange, placeholder} = this.props;
+        const {readOnly, value, initHeight, copyToClipboardBtn, onChange, placeholder, className} = this.props;
         const {height, target} = this.state;
 
         const style = {
-            height: height || initHeight
+            height: height || initHeight,
         };
 
         return (
             <div style={{position: 'relative'}}>
                 <textarea ref="textarea"
                           placeholder={placeholder}
-                          className="form-control mt-1"
+                          className={'form-control mt-1 ' + className}
                           readOnly={readOnly}
                           onChange={e => onChange(e.target.value)}
                           style={style}
+                          spellCheck={false}
                           value={value}/>
 
                 {copyToClipboardBtn &&

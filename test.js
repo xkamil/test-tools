@@ -9,3 +9,6 @@ const ENCODE_DECODE = 3;
 const supports = ENCODE;
 
 console.log((supports & DECODE) > 0);
+
+
+console.log(typeof " ");
