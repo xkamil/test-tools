@@ -1,6 +1,7 @@
 const TextUtils = {
     toUpperCase: (string) => string.toUpperCase(),
     toLowerCase: (string) => string.toLowerCase(),
+    toSnakeCase: (string) => string.replace(new RegExp("\\s+", 'g'), '_'),
     getNumberOfCharacters: (string) => string.length,
     getNumberOfWords: (string) => string.split(/\s/).filter(w => w.trim().length > 0).length,
     getNumberOfLines: (string) => string.split(/\n/).length,

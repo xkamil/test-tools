@@ -7,11 +7,21 @@ class TransformContainer extends React.Component {
     state = {
         input: '',
         output: '',
-        transform: TextUtils.toUpperCase
+        transforms: [TextUtils.toUpperCase]
     };
 
     setTransform = (transform) => {
-        this.setState({transform}, this.transform)
+        this.setState(prevState => {
+            let transforms = [...prevState.transforms];
+
+            if (transforms.indexOf(transform) === -1) {
+                transforms.push(transform);
+            } else {
+                transforms.splice(transforms.indexOf(transform), 1);
+            }
+            
+            return {transforms}
+        }, this.transform)
     };
 
     onInputChange = (input) => {
@@ -19,11 +29,15 @@ class TransformContainer extends React.Component {
     };
 
     transform = () => {
-        this.setState(prevState => ({output: prevState.transform(prevState.input)}))
+        const {transforms, input} = this.state;
+
+        let output = input;
+        transforms.forEach(t => output = t(output));
+        this.setState({output})
     };
 
     render() {
-        const {input, output, transform} = this.state;
+        const {input, output, transforms} = this.state;
 
         return (
             <div className="row">
@@ -32,13 +46,17 @@ class TransformContainer extends React.Component {
                     <hr/>
                     <div className="btn-group btn-group-toggle" data-toggle="buttons">
                         <SetTransformBtn name={'to upper case'}
-                                         currentTransform={transform}
+                                         activeTransforms={transforms}
                                          setTransform={this.setTransform}
                                          transform={TextUtils.toUpperCase}/>
                         <SetTransformBtn name={'to lower case'}
-                                         currentTransform={transform}
+                                         activeTransforms={transforms}
                                          setTransform={this.setTransform}
                                          transform={TextUtils.toLowerCase}/>
+                        <SetTransformBtn name={'to snake case'}
+                                         activeTransforms={transforms}
+                                         setTransform={this.setTransform}
+                                         transform={TextUtils.toSnakeCase}/>
                     </div>
 
                     <DataInput placeholder={'Input'} value={input} onChange={this.onInputChange}/>
@@ -58,10 +76,10 @@ class TransformContainer extends React.Component {
 }
 
 function SetTransformBtn(props) {
-    const {setTransform, transform, currentTransform, name} = props;
+    const {setTransform, transform, activeTransforms, name} = props;
 
     return (
-        <label className={`btn btn-secondary ${currentTransform === transform ? 'active' : ''}`}
+        <label className={`btn btn-${activeTransforms.indexOf(transform) > -1 ? 'primary' : 'secondary'}`}
                onClick={() => setTransform(transform)}>
             <input type="radio" onChange={() => true}/>{name}
         </label>
